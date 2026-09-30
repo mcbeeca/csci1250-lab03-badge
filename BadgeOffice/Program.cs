@@ -27,12 +27,14 @@ string badgeName = fullName.ToUpper();
 
 string userNameInitial = fullName.Substring(0,1).ToLower();
 string userNameLast = lastName.ToLower();
+string userName = userNameInitial + userNameLast;
 
 string firstInitial = firstName.Substring(0,1).ToUpper();
 string lastInitial = lastName.Substring(0,1).ToUpper();
 
 int lastNameLetters = lastName.Length;
 
+Console.WriteLine($"\nFull name: {fullName}");
 Console.WriteLine($"Name on badge: {badgeName}");
 Console.WriteLine($"Username: {userNameInitial}{userNameLast}");
 Console.WriteLine($"Initials: {firstInitial}.{lastInitial}.");
@@ -44,12 +46,12 @@ Console.WriteLine($"Letters in last name: {lastNameLetters}");
 int studentID = rng.Next(100000,1000000);
 Console.WriteLine($"\nStudent ID: {studentID}");
 int lockerNumber= rng.Next(1,501);
-Console.WriteLine($"\nStudent ID: {lockerNumber}");
+Console.WriteLine($"Student ID: {lockerNumber}");
 
 // Part 3: The Walk
 // Description: Prints distance and walk time for a student walking to a class via Math methods.
 
-Console.WriteLine("Please type the dorms X coordinate value: ");
+Console.WriteLine("\nPlease type the dorms X coordinate value: ");
 double dormX = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("Please type the dorms Y coordinate value: ");
@@ -69,8 +71,23 @@ double distance = Math.Sqrt(Math.Pow(classX - dormX,2) + Math.Pow(classY - dormY
 double tripInSeconds = distance / walkSpeed;
 
 Console.WriteLine($"Distance: {Math.Round(distance, 1)} feet.");
-int walkTimeMinutes = Convert.ToInt32(tripInSeconds / 60);
-int walkTimeSeconds = Convert.ToInt32(tripInSeconds % 60);
-Console.WriteLine($"Walk time: {walkTimeMinutes} minutes and {walkTimeSeconds} seconds.");
+int walkMinutes = Convert.ToInt32(tripInSeconds / 60);
+int walkSeconds = Convert.ToInt32(tripInSeconds % 60);
+Console.WriteLine($"Walk time: {walkMinutes} minutes and {walkSeconds} seconds.");
+
+// Part 4: The Badge
+// Description: Prints off a completed badge using the info provided in the previous parts.
+int checkDigit = studentID % 9;
+
+Console.WriteLine("\n");
+Console.WriteLine(new string('=', 34));
+Console.WriteLine("STUDENT BADGE");
+Console.WriteLine(new string('=', 34));
+Console.WriteLine("NAME".PadRight(10) + badgeName);
+Console.WriteLine("USERNAME".PadRight(10) + userName);
+Console.WriteLine("ID".PadRight(10) + $"{studentID}-{checkDigit}");
+Console.WriteLine("LOCKER".PadRight(10) + lockerNumber);
+Console.WriteLine("WALK".PadRight(10) + $"{walkMinutes} min {walkSeconds} sec");
+Console.WriteLine(new string('=', 34));
 
 
