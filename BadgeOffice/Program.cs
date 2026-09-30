@@ -46,7 +46,7 @@ Console.WriteLine($"Letters in last name: {lastNameLetters}");
 int studentID = rng.Next(100000,1000000);
 Console.WriteLine($"\nStudent ID: {studentID}");
 int lockerNumber= rng.Next(1,501);
-Console.WriteLine($"Student ID: {lockerNumber}");
+Console.WriteLine($"Locker Number: {lockerNumber}");
 
 // Part 3: The Walk
 // Description: Prints distance and walk time for a student walking to a class via Math methods.
