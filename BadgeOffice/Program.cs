@@ -1,5 +1,5 @@
 ﻿/*
-* Name: Your Full Name
+* Name: Chase McBee
 * Course: CSCI 1250, Section 001
 * Assignment: Lab 03, The Badge Office
 * Date: September 30, 2026
@@ -7,10 +7,13 @@
 * and the walking distance to a first class.
 */
 
+
+//rng code for Part 2
+Random rng = new Random();
+
+
 // Part 1: The Name
 // Description: Parses for a badge name, username, initials, and letters in a last name
-
-using System.Reflection.Metadata;
 
 Console.WriteLine("Please type your name: ");
 string fullName = Console.ReadLine();
@@ -34,3 +37,11 @@ Console.WriteLine($"Name on badge: {badgeName}");
 Console.WriteLine($"Username: {userNameInitial}{userNameLast}");
 Console.WriteLine($"Initials: {firstInitial}.{lastInitial}.");
 Console.WriteLine($"Letters in last name: {lastNameLetters}");
+
+// Part 2: The Numbers
+// Description: Adds a randomly generated ID number and locker number via a Random object.
+
+int studentID = rng.Next(100000,1000000);
+Console.WriteLine($"\nStudent ID: {studentID}");
+int lockerNumber= rng.Next(1,501);
+Console.WriteLine($"\nStudent ID: {lockerNumber}");
