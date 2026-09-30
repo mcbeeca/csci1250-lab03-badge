@@ -13,7 +13,7 @@ Random rng = new Random();
 
 
 // Part 1: The Name
-// Description: Parses for a badge name, username, initials, and letters in a last name
+// Description: Parses for a badge name, username, initials, and letters in a last name.
 
 Console.WriteLine("Please type your name: ");
 string fullName = Console.ReadLine();
@@ -39,9 +39,38 @@ Console.WriteLine($"Initials: {firstInitial}.{lastInitial}.");
 Console.WriteLine($"Letters in last name: {lastNameLetters}");
 
 // Part 2: The Numbers
-// Description: Adds a randomly generated ID number and locker number via a Random object.
+// Description: Prints a randomly generated ID number and locker number via a Random object.
 
 int studentID = rng.Next(100000,1000000);
 Console.WriteLine($"\nStudent ID: {studentID}");
 int lockerNumber= rng.Next(1,501);
 Console.WriteLine($"\nStudent ID: {lockerNumber}");
+
+// Part 3: The Walk
+// Description: Prints distance and walk time for a student walking to a class via Math methods.
+
+Console.WriteLine("Please type the dorms X coordinate value: ");
+double dormX = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Please type the dorms Y coordinate value: ");
+double dormY = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Please type the classroom's X coordinate value: ");
+double classX = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Please type the classroom's Y coordinate value: ");
+double classY = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Please type the student walking speed, in feet per second: ");
+double walkSpeed = Convert.ToDouble(Console.ReadLine());
+
+double distance = Math.Sqrt(Math.Pow(classX - dormX,2) + Math.Pow(classY - dormY,2));
+
+double tripInSeconds = distance / walkSpeed;
+
+Console.WriteLine($"Distance: {Math.Round(distance, 1)} feet.");
+int walkTimeMinutes = Convert.ToInt32(tripInSeconds / 60);
+int walkTimeSeconds = Convert.ToInt32(tripInSeconds % 60);
+Console.WriteLine($"Walk time: {walkTimeMinutes} minutes and {walkTimeSeconds} seconds.");
+
+
